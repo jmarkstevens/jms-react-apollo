@@ -1,0 +1,35 @@
+{
+  "name": "jms-apollo-server",
+  "version": "1.0.0",
+  "description": "Basic apollo graphql server",
+  "main": "server.js",
+  "dependencies": {
+    "apollo-server-express": "^1.3.0",
+    "body-parser": "^1.18.2",
+    "casual": "^1.5.19",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.13.0",
+    "lodash": "^4.17.10",
+    "node-fetch": "^1.7.3",
+    "sequelize": "^4.37.10",
+    "sqlite": "^2.9.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "scripts": {
+    "start": "nodemon ./server.js --exec babel-node"
+  },
+  "repository": "https://github.com/jmarkstevens/jms-apollo-server",
+  "author": "J Mark Stevens",
+  "license": "MIT"
+}
