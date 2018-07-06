@@ -28,7 +28,7 @@ npm install
 npm start
 ```
 
-A message will come up asking to "Would you like to run the app on another port instead? (Y/n)"
+A message will come up asking "Would you like to run the app on another port instead? (Y/n)"
 
 Yes
 
