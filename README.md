@@ -7,6 +7,7 @@ including state management.
 ## Getting started
 
 git clone https://github.com/jmarkstevens/jms-react-apollo
+
 cd jms-react-apollo
 
 You will need 2 terminal windows for the rest
@@ -14,7 +15,9 @@ You will need 2 terminal windows for the rest
 ### Server
 
 cd server
+
 npm install
+
 npm start
 
 Then open [http://localhost:3000/graphiql](http://localhost:3000/graphiql) for server testing of graphql
@@ -22,7 +25,9 @@ Then open [http://localhost:3000/graphiql](http://localhost:3000/graphiql) for s
 ### Client
 
 cd client
+
 npm install
+
 npm start
 
 A message will come up asking "Would you like to run the app on another port instead? (Y/n)"
