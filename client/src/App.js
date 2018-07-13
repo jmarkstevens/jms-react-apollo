@@ -8,6 +8,7 @@ import WithGraphql from './components/withGraphql';
 import WithQuery from './components/withQuery';
 import WithApollo from './components/withApollo';
 import WithState from './components/withState';
+import WithStaticCache from "./components/withStaticCache";
 
 const upvoteMutation = gql`
   mutation upvotePost($postId: Int!, $inVote: Int) {
@@ -31,6 +32,7 @@ class App extends Component {
         <WithGraphql />
         <WithQuery />
         <WithApollo />
+        <WithStaticCache />
         <WithLink />
       </div>
     );
