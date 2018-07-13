@@ -36,3 +36,6 @@ Yes
 
 Note: without the subscription in WithApollo changes in WithLink are not reflected in the other components.
 This is because WithLink is not connected to the same cache.
+
+WithStaticCache demonstrates a pattern to use Apollo
+apart from a react component.
