@@ -6,7 +6,7 @@ including state management.
 
 ## Getting started
 
-git clone https://github.com/apollostack/apollo-starter-kit
+git clone https://github.com/jmarkstevens/jms-react-apollo
 cd jms-react-apollo
 
 You will need 2 terminal windows for the rest
