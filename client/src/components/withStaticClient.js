@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 
-import StaticClient from '../qraphql/staticClient';
 import { postsQuery, upvoteMutation, upvotedMutation } from "../qraphql/gql";
+import StaticClient from '../qraphql/staticClient';
 
 const client = (new StaticClient()).client;
+
+const doUpvoted = upvotedPost => {
+  client
+    .mutate({
+      mutation: upvotedMutation,
+      variables: { ...upvotedPost }
+    })
+    .then(() => {
+      console.log("WithStaticCache upvotedPost then");
+    })
+    .catch(err => {
+      console.log("catch", err);
+    });
+};
 
 export default class WithStaticClient extends Component {
   state = { update: { id: 0, title: "", votes: 0 }, posts: [] };
   componentDidMount() {
     this.getPosts();
   }
-  doUpvoted = upvotedPost => {
-    client
-      .mutate({
-        mutation: upvotedMutation,
-        variables: { ...upvotedPost }
-      })
-      .then(() => {
-        console.log("WithStaticCache upvotedPost then");
-      })
-      .catch(err => {
-        console.log("catch", err);
-      });
-  };
   onMutate = post => {
     const newVote = post.votes + 1;
     client
@@ -35,7 +36,7 @@ export default class WithStaticClient extends Component {
       })
       .then(data => {
         const { upvotePost } = data.data;
-        this.doUpvoted(upvotePost);
+        doUpvoted(upvotePost);
         this.getPosts();
       })
       .catch(err => {

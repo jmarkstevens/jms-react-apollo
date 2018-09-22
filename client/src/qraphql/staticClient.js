@@ -18,12 +18,7 @@ const stateLink = withClientState({
 const uri = "http://localhost:4000/graphql";
 const graphqlLink = createHttpLink({ uri });
 
-// export const client = new ApolloClient({
-//   cache,
-//   link: ApolloLink.from([stateLink, graphqlLink])
-// });
-
-let instance = 0;
+let instance = null;
 export default class StaticClient {
   constructor() {
     if (!instance) instance = this;

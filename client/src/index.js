@@ -4,8 +4,8 @@ import { ApolloProvider } from "react-apollo";
 
 import './index.css';
 import App from './App';
-import StaticClient from './qraphql/staticClient';
 import registerServiceWorker from './registerServiceWorker';
+import StaticClient from './qraphql/staticClient';
 
 const client = (new StaticClient()).client;
 
