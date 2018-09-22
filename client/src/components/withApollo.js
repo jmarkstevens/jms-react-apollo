@@ -14,7 +14,7 @@ class WithApollo extends Component {
         variables: { ...upvotedPost }
       })
       .then(() => {
-        // console.log("upvotedPost then");
+        console.log("WithApollo upvotedPost then");
       })
       .catch(err => {
         console.log("catch", err);
@@ -39,14 +39,14 @@ class WithApollo extends Component {
         console.log("catch", err);
       });
   };
-  getPosts = () => {
+  getPosts0 = () => {
     const observableQuery = this.props.client.watchQuery({
       query: postsQuery,
       pollInterval: 15000
     });
     observableQuery.subscribe({ next: ({ data }) => this.setState({ posts: data.posts }) });
   }
-  getPosts0 = () => {
+  getPosts = () => {
     this.props.client
       .query({
         query: postsQuery

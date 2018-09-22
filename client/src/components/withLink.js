@@ -4,7 +4,7 @@ import { HttpLink } from "apollo-link-http";
 
 import { postsQuery, upvoteMutation } from "../qraphql/gql";
 
-const uri = 'http://localhost:3000/graphql';
+const uri = 'http://localhost:4000/graphql';
 const link = new HttpLink({ uri });
 
 export default class WithLink extends Component {

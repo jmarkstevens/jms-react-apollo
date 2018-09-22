@@ -20,7 +20,7 @@ npm install
 
 npm start
 
-Then open [http://localhost:3000/graphiql](http://localhost:3000/graphiql) for server testing of graphql
+Then open [http://localhost:4000/graphiql](http://localhost:4000/graphiql) for server testing of graphql
 
 ### Client
 
@@ -30,12 +30,9 @@ npm install
 
 npm start
 
-A message will come up asking "Would you like to run the app on another port instead? (Y/n)"
-
-Yes
-
 Note: without the subscription in WithApollo changes in WithLink are not reflected in the other components.
-This is because WithLink is not connected to the same cache.
+This is because WithLink is not connected to the same cache. Changes in WithGraphql, WithQuery and WithStaticClient are also not automatically updated to WithApollo without the subscription.
 
-WithStaticCache demonstrates a pattern to use Apollo
+
+WithStaticClient demonstrates a pattern for using the ApolloClient cache
 apart from a react component.

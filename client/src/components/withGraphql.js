@@ -11,7 +11,7 @@ class WithGraphql extends Component {
         variables: { ...upvotedPost }
       })
       .then(() => {
-        // console.log("upvotedPost then");
+        console.log("WithGraphql upvotedPost then");
       })
       .catch(err => {
         console.log("catch", err);

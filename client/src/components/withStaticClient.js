@@ -1,22 +1,11 @@
 import React, { Component } from 'react';
-import ApolloClient from "apollo-client";
-// import { ApolloLink } from "apollo-link";
-import { HttpLink } from "apollo-link-http";
 
-import Cache from "../qraphql/cache";
+import StaticClient from '../qraphql/staticClient';
 import { postsQuery, upvoteMutation, upvotedMutation } from "../qraphql/gql";
 
-const uri = "http://localhost:4000/graphql";
-// const graphqlLink = createHttpLink({ uri });
+const client = (new StaticClient()).client;
 
-const cache = new Cache().cache;
-
-const client = new ApolloClient({
-  cache,
-  link: new HttpLink({ uri })
-});
-
-export default class WithStaticCache extends Component {
+export default class WithStaticClient extends Component {
   state = { update: { id: 0, title: "", votes: 0 }, posts: [] };
   componentDidMount() {
     this.getPosts();
@@ -28,7 +17,7 @@ export default class WithStaticCache extends Component {
         variables: { ...upvotedPost }
       })
       .then(() => {
-        // console.log("upvotedPost then");
+        console.log("WithStaticCache upvotedPost then");
       })
       .catch(err => {
         console.log("catch", err);
@@ -53,7 +42,7 @@ export default class WithStaticCache extends Component {
         console.log("catch", err);
       });
   };
-  getPosts = () => {
+  getPosts0 = () => {
     const observableQuery = client.watchQuery({
       query: postsQuery,
       pollInterval: 15000
@@ -62,7 +51,7 @@ export default class WithStaticCache extends Component {
       next: ({ data }) => this.setState({ posts: data.posts })
     });
   };
-  getPosts0 = () => {
+  getPosts = () => {
     client
       .query({
         query: postsQuery
@@ -76,7 +65,7 @@ export default class WithStaticCache extends Component {
       });
   };
   render() {
-    console.log("WithApollo props:", this.props);
+    console.log("WithStaticClient props:", this.props);
     const list = this.state.posts.map((post, index) => {
       const key = index + 1;
       return (
@@ -88,7 +77,7 @@ export default class WithStaticCache extends Component {
     });
     return (
       <div style={{ marginLeft: "20px", textAlign: "left" }}>
-        <h2>WithStaticCache</h2>
+        <h2>WithStaticClient</h2>
         <ul>{list}</ul>
       </div>
     );
