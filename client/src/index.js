@@ -23,7 +23,7 @@ const stateLink = withClientState({
   typeDefs
 });
 
-const uri = "http://localhost:3000/graphql";
+const uri = "http://localhost:4000/graphql";
 const graphqlLink = createHttpLink({ uri });
 
 const client = new ApolloClient({

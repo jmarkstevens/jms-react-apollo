@@ -6,7 +6,7 @@ import { HttpLink } from "apollo-link-http";
 import Cache from "../qraphql/cache";
 import { postsQuery, upvoteMutation, upvotedMutation } from "../qraphql/gql";
 
-const uri = "http://localhost:3000/graphql";
+const uri = "http://localhost:4000/graphql";
 // const graphqlLink = createHttpLink({ uri });
 
 const cache = new Cache().cache;
